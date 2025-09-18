@@ -1,0 +1,5687 @@
+{
+	"info": {
+		"_postman_id": "f2008e2d-2cbb-4a08-865f-87e2228b7f3b",
+		"name": "Siren",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24655616",
+		"_collection_link": "https://siren8.postman.co/workspace/Siren-API~96c37cf0-0c69-4428-9d7b-5808a524c963/collection/24655616-f2008e2d-2cbb-4a08-865f-87e2228b7f3b?action=share&source=collection_link&creator=24655616"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Signup",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\":\"admin@123        \",\n    \"email\":\"admin@gmail.com\",\n    \"password\":\"Admin@123\",\n    \"phoneNumber\":\"8802345568\",\n    \"countryCode\":\"+91\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/admin/auth/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"auth",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\":\"admin@gmail.com\",\n    \"password\":\"Admin@123\"\n  \n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/admin/auth/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Log out",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODcxMTI3OTQ5YmNiZGM4N2RkNjI5NyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MzY4MzE5NywiZXhwIjoxNzU2Mjc1MTk3fQ.CaLUqyxLniNUYEpHxoXRKyV3tMs05zMoOOPQcr8Ko9M",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/admin/auth/logout",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODcxMTI3OTQ5YmNiZGM4N2RkNjI5NyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MzY4Mzg0NCwiZXhwIjoxNzU2Mjc1ODQ0fQ.0CGvPqOMH0__EuQvxGy9aFTLDoh5mhwNWkqJUAkxAE0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"current_password\":\"Admin@123\",\n    \"new_password\":\"Admin@123\",\n    \"confirm_new_password\":\"Admin@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/admin/auth/change_password",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"auth",
+										"change_password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "User List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/admin/user/list?page=1&perPage=10&status=true&fromDate=2025-07-28&toDate=2025-07-29&search=Aashutosh&type=2&loggedIn=true&subscribed=true",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "10"
+										},
+										{
+											"key": "status",
+											"value": "true"
+										},
+										{
+											"key": "fromDate",
+											"value": "2025-07-28"
+										},
+										{
+											"key": "toDate",
+											"value": "2025-07-29"
+										},
+										{
+											"key": "search",
+											"value": "Aashutosh"
+										},
+										{
+											"key": "type",
+											"value": "2",
+											"description": "1- Un-Block-Users , 2 - Block Users"
+										},
+										{
+											"key": "loggedIn",
+											"value": "true"
+										},
+										{
+											"key": "subscribed",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Details",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/admin/user/details/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"details",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68886db1eb54b5621fca7197"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Status",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\":\"68886db1eb54b5621fca7197\",\n    \"status\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/admin/user/updateStatus",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"updateStatus"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/admin/user/deleteUser/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"deleteUser",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68886db1eb54b5621fca7197"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User Access",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/user/updateUser_access/:id/:status",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"updateUser_access",
+										":id",
+										":status"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Aashu",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68905d48471a27e59e1fc360"
+										},
+										{
+											"key": "status",
+											"value": "Limited Acces",
+											"description": "Full Access"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User - Sub - List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\":\"68905d48471a27e59e1fc360\",\n    \"subscription_details\": {\n        \"subId\": \"ASTRO_SUBME8K0AUI2\",\n        \"title\": \"Basic1\",\n        \"amount\": 200,\n        \"currency\": \"USD\",\n        \"subscriptionType\": \"6-months\", // e.g., monthly, yearly,6-months\n        \"features\": [\n            \"t12.png\",\n            \"t1211.png\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/user/user_sub_list/:id?page=1&perPage=1",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"user_sub_list",
+										":id"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "1"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68905d48471a27e59e1fc360"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Feed",
+					"item": [
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/feed/list",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"feed",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add feed",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Demo1",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/vinod/Downloads/astolo.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/feed/add_feed",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"feed",
+										"add_feed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit feed",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Demo11",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/vinod/Pictures/Screenshots/Screenshot from 2025-07-31 17-43-52.png"
+										},
+										{
+											"key": "feedId",
+											"value": "6891d3290832df2c1e69faa3",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/feed/edit_feed",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"feed",
+										"edit_feed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Feed Details",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/feed/details/:id",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"feed",
+										"details",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6891d3290832df2c1e69faa3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/feed/list?page=1&perPage=11&search",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"feed",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "11"
+										},
+										{
+											"key": "search",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Subscription",
+					"item": [
+						{
+							"name": "add ",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // All Requireds\n    \"title\": \"Basic\",\n    \"subscriptionType\": \"monthly\", \n    \"amount\": 200,\n    \"features\": \"t12.png\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/sub/add",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"sub",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // All Requireds\n    \"subId\":\"ASTRO_SUBME8ILIK31\",\n    \"title\": \"Basic\",\n    \"subscriptionType\": \"monthly\", \n    \"amount\": 200,\n    \"features\": \"t12.png\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/sub/edit",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"sub",
+										"edit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Details",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/sub/details/:id",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"sub",
+										"details",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "ASTRO_SUBME8ILIK31"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/sub/list?page=1&perPage=10&search=basi",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"sub",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "10"
+										},
+										{
+											"key": "search",
+											"value": "basi"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update-status",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/sub/update-status/:id",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"sub",
+										"update-status",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "ASTRO_SUBME8ILIK31"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/sub/delete/:id",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"sub",
+										"delete",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "ASTRO_SUBME8ILIK31"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notification",
+					"item": [
+						{
+							"name": "Save_notification",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODcxMTI3OTQ5YmNiZGM4N2RkNjI5NyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjExMzIyNywiZXhwIjoxNzU4NzA1MjI3fQ.aYibBKYlEvy40ffGOJeHc_wVJhCyPK732R25pdrf1WU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "hello",
+											"type": "text"
+										},
+										{
+											"key": "des",
+											"value": "des",
+											"type": "text"
+										},
+										{
+											"key": "sendTo",
+											"value": "single_user",
+											"description": "single_user , all_users , active_users, blocked_users, subscribed_users",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "9958387782",
+											"description": "UserId required if sendTo is 'singlr_user'",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/vinod/Pictures/Screenshots/t12.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/notification/save_notification",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"notification",
+										"save_notification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Notification",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODcxMTI3OTQ5YmNiZGM4N2RkNjI5NyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjExMzIyNywiZXhwIjoxNzU4NzA1MjI3fQ.aYibBKYlEvy40ffGOJeHc_wVJhCyPK732R25pdrf1WU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/notification/delete_notification/:id",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"notification",
+										"delete_notification",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68ad634bfab10bfd041fe731"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODcxMTI3OTQ5YmNiZGM4N2RkNjI5NyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjExMzIyNywiZXhwIjoxNzU4NzA1MjI3fQ.aYibBKYlEvy40ffGOJeHc_wVJhCyPK732R25pdrf1WU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/admin/notification/list?page=1&perPage=11&role=single_user",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"notification",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "11"
+										},
+										{
+											"key": "role",
+											"value": "single_user"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Sign - Up",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Aashu\",\n    \"email\": \"ash12@gmail.com\",\n    \"countryCode\": \"+91\",\n    \"phoneNumber\": \"8979012657\",\n    \"dob\": \"2001-01-15\", // YYYY-MM-DD\n    \"image\": \"http://localhost:3000/image\",\n    \"password1\": \"1212\",\n    \"password2\": \"8979\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/auth/signUp",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"signUp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign - Up (v2)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"value": "",
+											"description": "//Optional",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Aashu",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ash12@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "countryCode",
+											"value": "91",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "8979012633",
+											"type": "text"
+										},
+										{
+											"key": "dob",
+											"value": "2001-01-15",
+											"type": "text"
+										},
+										{
+											"key": "password1",
+											"value": "1212",
+											"type": "text"
+										},
+										{
+											"key": "password2",
+											"value": "8979",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/auth/signUp",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"signUp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign In",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let response = pm.response.json();",
+											"",
+											"// 1. Status Code",
+											"pm.test(\"Status code is 200\", () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"// 2. Message check",
+											"pm.test(\"Login success message\", () => {",
+											"    pm.expect(response.message).to.eql(\"Login successfully.\");",
+											"});",
+											"",
+											"// 3. Access & Refresh token validation",
+											"pm.test(\"Access & Refresh token exist\", () => {",
+											"    pm.expect(response.data).to.have.property(\"accessToken\").that.is.a(\"string\").and.not.empty;",
+											"    pm.expect(response.data).to.have.property(\"refreshToken\").that.is.a(\"string\").and.not.empty;",
+											"});",
+											"",
+											"// 🔑 Save tokens and userId for reuse",
+											"if (response.data) {",
+											"    if (response.data.accessToken) {",
+											"        pm.environment.set(\"accessToken\", response.data.accessToken);",
+											"    }",
+											"    if (response.data.refreshToken) {",
+											"        pm.environment.set(\"refreshToken\", response.data.refreshToken);",
+											"    }",
+											"    if (response.data._id) {",
+											"        pm.environment.set(\"userId\", response.data._id);",
+											"    }",
+											"}",
+											"",
+											"// 4. User Details checks",
+											"pm.test(\"User name is Vinay\", () => {",
+											"    pm.expect(response.data.name).to.eql(\"Vinay\");",
+											"});",
+											"",
+											"pm.test(\"User is active\", () => {",
+											"    pm.expect(response.data.isActive).to.eql(true);",
+											"});",
+											"",
+											"// 5. ID is valid format",
+											"pm.test(\"User ID is valid\", () => {",
+											"    pm.expect(response.data._id).to.match(/^[a-f\\d]{24}$/i);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"countryCode\":\"+91\",\n    \"phoneNumber\":\"9794305933\",\n    \"password\":\"1234\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{siren_dev}}api/v1/user/auth/signIn",
+									"host": [
+										"{{siren_dev}}api"
+									],
+									"path": [
+										"v1",
+										"user",
+										"auth",
+										"signIn"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Info",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/auth/getUserInfo?countryCode=91&phoneNumber=8979012645",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"getUserInfo"
+									],
+									"query": [
+										{
+											"key": "countryCode",
+											"value": "91"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "8979012645"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Details",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/auth/userDetails",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"userDetails"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/auth/logout",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Aashutosh sharma\",\n    \"email\": \"as12123@gmail.com\",\n    \"image\": \"http://localhost:3000/image\",\n    \"dob\": \"2011-01-13\" // YYYY-MM-DD\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/auth/updateProfile",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"updateProfile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Re-generate - Access - Token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{refresh-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/auth/re_generateAccessToken",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"re_generateAccessToken"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Notification Status",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"isNotification\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/auth/updateNotification",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"updateNotification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List - Undelivered - Msg",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTIwYTA5YTUxMWZmNDhmYTNhZGJjYyIsInJvbGUiOiJ1c2VyIiwidXNpbmdQYXNzd29yZEtleSI6MSwibG9naW5LZXlfc3RhdHVzIjowLCJpYXQiOjE3NTczMzA4NTAsImV4cCI6MTc1Nzc2Mjg1MH0.F6KHI77IzHsSHASFlloqbY3SixcLtFOLWvpf7AiPQzg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"description": "//Optional",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/list_undelivered_msg",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"list_undelivered_msg"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Common",
+					"item": [
+						{
+							"name": "Image upload",
+							"item": [
+								{
+									"name": "Generate- Pre-signed-Url",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "deviceType",
+												"value": "web",
+												"description": "web",
+												"type": "text"
+											},
+											{
+												"key": "deviceToken",
+												"value": "23323232",
+												"description": "fcm token",
+												"type": "text"
+											},
+											{
+												"key": "language",
+												"value": "en",
+												"description": "en,ar",
+												"type": "text"
+											},
+											{
+												"key": "timezone",
+												"value": "Asia/Calcatta",
+												"type": "text"
+											},
+											{
+												"key": "deviceIp",
+												"value": "0.0.0.0.0/0",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "{{access-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"roomId\": \"room_12334\", // Required if type is not 'profle-image or group-profile-image'\n    \"mediaType\": \"image\",\n    \"type\": \"single\", // Required  ('profle-image', 'group-profile-image', 'single', 'double', 'group')\n    \"fileName\": \"t12\", // Required\n    \"fileType\": \"image/png\" // Required\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local-host}}/api/v1/common/list/generatePresignedUrl",
+											"host": [
+												"{{local-host}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"common",
+												"list",
+												"generatePresignedUrl"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Subscription - List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\":\"68905d48471a27e59e1fc360\",\n    \"subscription_details\": {\n        \"subId\": \"ASTRO_SUBME8K0AUI2\",\n        \"title\": \"Basic1\",\n        \"amount\": 200,\n        \"currency\": \"USD\",\n        \"subscriptionType\": \"6-months\", // e.g., monthly, yearly,6-months\n        \"features\": [\n            \"t12.png\",\n            \"t1211.png\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/common/list/sub_list",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"common",
+										"list",
+										"sub_list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Home",
+					"item": [
+						{
+							"name": "Contact List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/home/contactList?page=1&perPage=300&groupId=chat_roomMDR4ANRP3",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"home",
+										"contactList"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "300"
+										},
+										{
+											"key": "search",
+											"value": "Aashutosh sharm",
+											"disabled": true
+										},
+										{
+											"key": "groupId",
+											"value": "chat_roomMDR4ANRP3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Room - list",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/home/all_room_list?isGroup=false",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"home",
+										"all_room_list"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Aashu",
+											"disabled": true
+										},
+										{
+											"key": "isGroup",
+											"value": "false"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Chat List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/home/chatList/:id",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"home",
+										"chatList",
+										":id"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Aashu",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "chat_roomMDR4ANRP3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Feed list",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/home/feed_list?page=1&perPage=11&search",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"home",
+										"feed_list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "11"
+										},
+										{
+											"key": "search",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cursor - chat List (For pagination)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/home/cursor_chatList?roomId=SIREN_chat_roomMEWGJUAD42&timeStamp=1756449287",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"home",
+										"cursor_chatList"
+									],
+									"query": [
+										{
+											"key": "roomId",
+											"value": "SIREN_chat_roomMEWGJUAD42"
+										},
+										{
+											"key": "timeStamp",
+											"value": "1756449287"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Chat - Room",
+					"item": [
+						{
+							"name": "Create Room",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"participantId\":\"688a1a41bd7ae062f8eefa08\" // Required\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/createRoom",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"createRoom"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Room wIth Group",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "participantIds",
+											"value": "6891ed698358615217dcd22b",
+											"description": "// Required",
+											"type": "text"
+										},
+										{
+											"key": "groupName",
+											"value": "Father of all1",
+											"description": "// Required",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"description": "// Optional",
+											"type": "file",
+											"src": "/home/vinod/Downloads/astolo.png"
+										},
+										{
+											"key": "des",
+											"value": "",
+											"description": "//Optional",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/createRoom_with_group",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"createRoom_with_group"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Participants",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"participantIds\": [\"688a1a41bd7ae062f8eefa08\"],\n    \"groupId\":\"chat_roomMDR4ANRP3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/add_participants",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"add_participants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Participants",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"participantIds\": [\"688a1a41bd7ae062f8eefa08\"],\n    \"groupId\":\"chat_roomMDR4ANRP3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/remove_participants",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"remove_participants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update - group - profile",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "roomId",
+											"value": "6892ee7db0bffff78dba8c5b",
+											"description": "// Required",
+											"type": "text"
+										},
+										{
+											"key": "groupName",
+											"value": "Father of all112",
+											"description": "// Required",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"description": "// Optional",
+											"type": "file",
+											"src": "/home/vinod/Pictures/Screenshots/Screenshot from 2025-07-30 11-37-23.png"
+										},
+										{
+											"key": "des",
+											"value": "",
+											"description": "// Optional",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/update_group_profile",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"update_group_profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Room Details",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"description": "// Optional",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/room_details/:id",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"room_details",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6892ee7db0bffff78dba8c5b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete  Message",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"messageType\":\"delete_msg\",\n    \"localId\":\"\",\n    \"roomId\":\"\",\n    \"senderId\":\"\",\n    \"send_timeStamp\":\"\",\n    \"message\":\"\",\n    \"seen_details\":[\n        {\n            \"participantId\":\"\",\n            \"seen\":\"un_delivered\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/delete_msg",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"delete_msg"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check participant status",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/check_participant_status/:id",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"check_participant_status",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6892fe13a511ff48fa3ae0b8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Participant list",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "ios",
+										"description": "ios,andriod,web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "ar",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "currentVersion",
+										"value": "1.0.1",
+										"type": "text"
+									},
+									{
+										"key": "authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/participant_list/:id",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"participant_list",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "SIREN_chat_roomMEKZ908Y29"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Block - Unblock -  User",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "ios",
+										"description": "ios,andriod,web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "ar",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "currentVersion",
+										"value": "1.0.1",
+										"type": "text"
+									},
+									{
+										"key": "authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/block_unblock_user?participantId=68a4a026469bd0d52e256a67&roomId=SIREN_chat_roomMEKZ908Y29&isBlocked=true",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"block_unblock_user"
+									],
+									"query": [
+										{
+											"key": "participantId",
+											"value": "68a4a026469bd0d52e256a67"
+										},
+										{
+											"key": "roomId",
+											"value": "SIREN_chat_roomMEKZ908Y29"
+										},
+										{
+											"key": "isBlocked",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Medias -  List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "ios",
+										"description": "ios,andriod,web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "ar",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "currentVersion",
+										"value": "1.0.1",
+										"type": "text"
+									},
+									{
+										"key": "authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/chat_room/room_medias_list/:id",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"chat_room",
+										"room_medias_list",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "SIREN_chat_roomMEKZ908Y29"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Subscription",
+					"item": [
+						{
+							"name": "Admin - Sub - List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/sub/sub_list?page=1&perPage=1",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"sub",
+										"sub_list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User - Sub - List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/sub/user_sub_list?page=1&perPage=1",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"sub",
+										"user_sub_list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Purchase - Subscription",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web, ios, android",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\":\"68905d48471a27e59e1fc360\",\n    \"subscription_details\": {\n        \"subId\": \"ASTRO_SUBME8K0AUI2\",\n        \"title\": \"Basic1\",\n        \"amount\": 200,\n        \"currency\": \"USD\",\n        \"subscriptionType\": \"6-months\", // e.g., monthly, yearly,6-months\n        \"features\": [\n            \"t12.png\",\n            \"t1211.png\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/sub/purchase_subscription",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"sub",
+										"purchase_subscription"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notification",
+					"item": [
+						{
+							"name": "Notification - List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTg1ODlhNjc1NWUzZDQxZGVlODZmMiIsInJvbGUiOiJ1c2VyIiwidXNpbmdQYXNzd29yZEtleSI6MSwibG9naW5LZXlfc3RhdHVzIjowLCJpYXQiOjE3NTYxOTQ5OTksImV4cCI6MTc1NjYyNjk5OX0.Qsi1d_wnVSoGms7o37q4-uS69CKCREFnmCu62NJmrao",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/vinod/Pictures/Screenshots/t12.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/home/notification_list",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"home",
+										"notification_list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Un- Read Notification",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTg1ODlhNjc1NWUzZDQxZGVlODZmMiIsInJvbGUiOiJ1c2VyIiwidXNpbmdQYXNzd29yZEtleSI6MSwibG9naW5LZXlfc3RhdHVzIjowLCJpYXQiOjE3NTYxOTQ5OTksImV4cCI6MTc1NjYyNjk5OX0.Qsi1d_wnVSoGms7o37q4-uS69CKCREFnmCu62NJmrao",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/home/un_read_notification",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"home",
+										"un_read_notification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Notification - Read",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTg1ODlhNjc1NWUzZDQxZGVlODZmMiIsInJvbGUiOiJ1c2VyIiwidXNpbmdQYXNzd29yZEtleSI6MSwibG9naW5LZXlfc3RhdHVzIjowLCJpYXQiOjE3NTYxOTQ5OTksImV4cCI6MTc1NjYyNjk5OX0.Qsi1d_wnVSoGms7o37q4-uS69CKCREFnmCu62NJmrao",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/home/notification_read/:id",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"home",
+										"notification_read",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68ad687175e5e747d69360ab"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single/Bulk Delete - Notification",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "deviceType",
+										"value": "web",
+										"description": "web",
+										"type": "text"
+									},
+									{
+										"key": "deviceToken",
+										"value": "23323232",
+										"description": "fcm token",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"description": "en,ar",
+										"type": "text"
+									},
+									{
+										"key": "timezone",
+										"value": "Asia/Calcatta",
+										"type": "text"
+									},
+									{
+										"key": "deviceIp",
+										"value": "0.0.0.0.0/0",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{local-host}}/api/v1/user/home/delete_notification?notId=68aff311638a0961d5c39493",
+									"host": [
+										"{{local-host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"home",
+										"delete_notification"
+									],
+									"query": [
+										{
+											"key": "notId",
+											"value": "68aff311638a0961d5c39493"
+										},
+										{
+											"key": "type",
+											"value": "all",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
